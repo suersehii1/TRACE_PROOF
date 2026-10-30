@@ -1,0 +1,69 @@
+{
+  "name": "데모 식각 장비 출하 데이터 기준",
+  "version": "1.0",
+  "equipment_id": "EQ-DEMO-01",
+  "scenario": "NORMAL_RUN",
+  "allowed_run_ids": [
+    "RUN-001"
+  ],
+  "allowed_chambers": [
+    "CH-A"
+  ],
+  "parameters": [
+    {
+      "id": "TEMP_PV",
+      "name": "공정 온도",
+      "unit": "C",
+      "minimum": 150,
+      "maximum": 200,
+      "interval_ms": 1000,
+      "required": true,
+      "min_samples": 6,
+      "interval_tolerance": 0.2
+    },
+    {
+      "id": "PRESSURE",
+      "name": "챔버 압력",
+      "unit": "Pa",
+      "minimum": 90,
+      "maximum": 110,
+      "interval_ms": 1000,
+      "required": true,
+      "min_samples": 6,
+      "interval_tolerance": 0.2
+    },
+    {
+      "id": "FLOW",
+      "name": "가스 유량",
+      "unit": "sccm",
+      "minimum": 45,
+      "maximum": 55,
+      "interval_ms": 1000,
+      "required": true,
+      "min_samples": 6,
+      "interval_tolerance": 0.2
+    },
+    {
+      "id": "POWER",
+      "name": "RF 전력",
+      "unit": "W",
+      "minimum": 400,
+      "maximum": 600,
+      "interval_ms": 1000,
+      "required": true,
+      "min_samples": 6,
+      "interval_tolerance": 0.2
+    },
+    {
+      "id": "VIBRATION",
+      "name": "진동 참고값",
+      "unit": "mm/s",
+      "minimum": null,
+      "maximum": null,
+      "interval_ms": 1000,
+      "required": true,
+      "min_samples": 6,
+      "interval_tolerance": 0.2
+    }
+  ]
+}

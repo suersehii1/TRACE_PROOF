@@ -1,0 +1,73 @@
+version: '3.8'
+
+# 외부에 공개하는 포트는 화면 하나뿐입니다. API와 장비 전송은 내부망을 사용합니다.
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: traceproof
+      POSTGRES_USER: traceproof
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-traceproof_local_demo}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U traceproof -d traceproof']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://traceproof:${POSTGRES_PASSWORD:-traceproof_local_demo}@db:5432/traceproof
+      DEVICE_TOKEN: ${DEVICE_TOKEN:-traceproof_device_demo_only}
+      SIMULATOR_URL: http://simulator:8001
+      RAW_DATA_DIR: /raw-data
+    volumes:
+      - ./RAW_DATA:/raw-data:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  simulator:
+    build: ./simulator
+    environment:
+      BACKEND_URL: http://backend:8000
+      DEVICE_TOKEN: ${DEVICE_TOKEN:-traceproof_device_demo_only}
+      RAW_DATA_DIR: /raw-data
+      AUTO_SEND: 'true'
+    volumes:
+      - ./RAW_DATA:/raw-data:ro
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8001/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    ports:
+      - '${WEB_PORT:-8088}:80'
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, wget, -q, --spider, http://127.0.0.1/]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

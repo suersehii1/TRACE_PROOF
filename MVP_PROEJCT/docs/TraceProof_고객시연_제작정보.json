@@ -1,0 +1,93 @@
+{
+  "duration_seconds": 208.22,
+  "resolution": "1920x1080",
+  "fps": 30,
+  "video_codec": "H.264",
+  "audio_codec": "AAC",
+  "voice": "ko-KR-SunHiNeural",
+  "gender": "Female",
+  "language": "ko-KR",
+  "subtitles": "한국어 하드 자막 및 SRT",
+  "size_bytes": 11241604,
+  "chapters": [
+    {
+      "chapter": "장비 변경 검증을 한눈에",
+      "start": 0,
+      "duration": 12.1
+    },
+    {
+      "chapter": "고객이 겪는 문제",
+      "start": 12.1,
+      "duration": 15.833
+    },
+    {
+      "chapter": "01  장비 데이터 등록",
+      "start": 27.933,
+      "duration": 17.733
+    },
+    {
+      "chapter": "02  검사할 기준 확인",
+      "start": 45.667,
+      "duration": 16.7
+    },
+    {
+      "chapter": "03  변경 전후 비교",
+      "start": 62.367,
+      "duration": 14.133
+    },
+    {
+      "chapter": "04  문제를 빠르게 좁히기",
+      "start": 76.5,
+      "duration": 19.8
+    },
+    {
+      "chapter": "05  원본으로 확인",
+      "start": 96.3,
+      "duration": 19.3
+    },
+    {
+      "chapter": "06  조치와 검토 기록",
+      "start": 115.6,
+      "duration": 17.4
+    },
+    {
+      "chapter": "07  수정 후 다시 검증",
+      "start": 133.0,
+      "duration": 19.0
+    },
+    {
+      "chapter": "08  보고서로 전달",
+      "start": 152.0,
+      "duration": 19.033
+    },
+    {
+      "chapter": "09  현장에서도 같은 화면",
+      "start": 171.033,
+      "duration": 18.167
+    },
+    {
+      "chapter": "고객 적용의 시작",
+      "start": 189.2,
+      "duration": 19.0
+    }
+  ],
+  "verification": {
+    "full_decode": "PASS",
+    "video_codec": "H.264",
+    "audio_codec": "AAC",
+    "resolution": "1920x1080",
+    "mean_volume_db": -16.6,
+    "peak_volume_db": -1.5,
+    "scene_count": 12,
+    "voice_gender": "Female",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "browser_playback": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 208.221333,
+    "currentTime": 0.98317,
+    "readyState": 4,
+    "error": null
+  }
+}

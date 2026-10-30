@@ -1,0 +1,26 @@
+* text=auto
+*.py text eol=lf
+*.js text eol=lf
+*.cjs text eol=lf
+*.vue text eol=lf
+*.css text eol=lf
+*.json text eol=lf
+# 원시 파일은 SHA-256 증거이므로 체크아웃 시에도 바이트를 그대로 보존한다.
+MVP_PROEJCT/RAW_DATA/*.json -text whitespace=cr-at-eol
+*.yaml text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+*.html text eol=lf
+*.srt text eol=lf
+*.txt text eol=lf
+*.conf text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
+.dockerignore text eol=lf
+.env.example text eol=lf
+*.ps1 text eol=crlf
+Dockerfile text eol=lf
+*.mp4 binary
+*.png binary
+*.jpg binary
+*.pdf binary
